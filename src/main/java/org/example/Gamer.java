@@ -13,6 +13,7 @@ public class Gamer {
         for (int i = 0; i < doors.length; i++) {
             if (doors[i].isOpened()) {
                 isAnyDoorOpened = true;
+                break;
             }
         }
         if (isAnyDoorOpened) {

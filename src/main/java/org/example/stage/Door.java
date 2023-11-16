@@ -19,10 +19,10 @@ public class Door {
     public boolean isOpened() {
         return opened;
     }
-/*    public boolean isWithPrize(){
 
-    }*/
-    public void setOpened(){
+    public void setOpened() {
         opened = true;
     }
+
+
 }
