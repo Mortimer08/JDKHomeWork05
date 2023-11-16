@@ -19,15 +19,15 @@ public class ShowMan {
         while (!gameOver) {
             showDoors();
             getGamerChoice(doors);
-//            System.out.println("Gamer choose door number " + gamer.getDecision());
+            System.out.println("Gamer choose door number " + gamer.getDecision());
             openDoor();
             checkIfGameOver();
             checkIfGamerWon();
         }
 
-        /*if (gamerWon) {
+        if (gamerWon) {
             System.out.println("Gamer won!");
-        } else System.out.println("Gamer lost");*/
+        } else System.out.println("Gamer lost");
         return gamerWon;
     }
 
