@@ -25,13 +25,20 @@ public class Gamer {
     }
 
     private void changeDecision(Door[] doors) {
+        System.out.println("Gamer changes decision: " + getDecision());
+
         for (int i = 0; i < doors.length; i++) {
             if (!doors[i].isOpened() && i != decision) {
                 decision = i;
+                return;
             }
         }
-    };
-    public int getDecision(){
+        System.out.println("to: " + getDecision());
+    }
+
+    ;
+
+    public int getDecision() {
         return decision;
     }
 }

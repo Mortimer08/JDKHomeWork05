@@ -72,13 +72,14 @@ public class ShowMan {
     }
 
     public void checkIfGameOver() {
+        int openedDoorsCount = 0;
         for (int i = 0; i < doors.length; i++) {
-            if (!doors[i].isOpened()) {
-                gameOver = false;
-                return;
+            if (doors[i].isOpened()) {
+                openedDoorsCount++;
             }
         }
-        gameOver = true;
+//        System.out.println("Opened doors = " + openedDoorsCount);
+        gameOver = ((doors.length - openedDoorsCount) == 1);
     }
 
     public void checkIfGamerWon() {
