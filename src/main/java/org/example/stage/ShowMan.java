@@ -1,6 +1,9 @@
 package org.example.stage;
 
 import org.example.Gamer;
+import org.example.stage.ui.ConsoleUI;
+import org.example.stage.ui.HiddenUI;
+import org.example.stage.ui.UI;
 
 import java.util.Random;
 
@@ -12,23 +15,28 @@ public class ShowMan {
     private int doorWithPrize;
     private final Random rnd = new Random();
     private Gamer gamer;
+    private UI ui;
+
+    public ShowMan() {
+        this.ui = new HiddenUI(this);
+    }
 
     public boolean startGame() {
 
         initGame();
         while (!gameOver) {
-            showDoors();
+            ui.showDoors();
             getGamerChoice(doors);
-            System.out.println("Gamer choose door number " + gamer.getDecision());
-            openDoor();
+            ui.showGamerChoice();
+
+            ui.showShowManAction(openDoor());
             checkIfGameOver();
             checkIfGamerWon();
-            System.out.println();
         }
 
         if (gamerWon) {
-            System.out.println("Gamer won!");
-        } else System.out.println("Gamer lost");
+            ui.gamerWonMessage();
+        } else ui.gamerLostMessage();
         return gamerWon;
     }
 
@@ -42,17 +50,16 @@ public class ShowMan {
                 doors[i].putPrize();
             }
         }
-//        System.out.println("The game started");
     }
 
     public void getGamerChoice(Door[] doors) {
         gamer.makeDecision(doors);
     }
 
-    public void openDoor() {
+    public int openDoor() {
         int doorToOpenNumber = getDoorToOpenNumber();
         doors[doorToOpenNumber].setOpened();
-        System.out.println("ShowMan opened door number " + doorToOpenNumber);
+        return doorToOpenNumber;
     }
 
     public int getDoorToOpenNumber() {
@@ -78,7 +85,6 @@ public class ShowMan {
                 openedDoorsCount++;
             }
         }
-//        System.out.println("Opened doors = " + openedDoorsCount);
         gameOver = ((doors.length - openedDoorsCount) == 1);
     }
 
@@ -92,21 +98,18 @@ public class ShowMan {
         gamerWon = false;
     }
 
-    public void showDoors() {
-        StringBuilder sb = new StringBuilder();
+    public Door[] getDoors() {
+        return doors;
+    }
 
-        for (int i = 0; i < doors.length; i++) {
-            sb.append("is ");
-
-            if (doors[i].isOpened()) {
-                sb.append("opened");
-            } else sb.append("closed");
-            sb.append("; there is ");
-            if (doors[i].isWithPrise()) {
-                sb.append("a PRIZE");
-            } else sb.append("nothing");
-            System.out.printf("Door %d %s behind it\n", i, sb.toString());
-            sb.delete(0, sb.length());
+    public boolean isDoorWithPrise(UI ui, Door door) {
+        if (this.ui.equals(ui)) {
+            return door.isWithPrise();
         }
+        return false;
+    }
+
+    public int getGamerDecision() {
+        return gamer.getDecision();
     }
 }
