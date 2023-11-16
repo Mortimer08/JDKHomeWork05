@@ -23,6 +23,7 @@ public class ShowMan {
             openDoor();
             checkIfGameOver();
             checkIfGamerWon();
+            System.out.println();
         }
 
         if (gamerWon) {
@@ -51,7 +52,7 @@ public class ShowMan {
     public void openDoor() {
         int doorToOpenNumber = getDoorToOpenNumber();
         doors[doorToOpenNumber].setOpened();
-//        System.out.println("ShowMan opened door number " + doorToOpenNumber);
+        System.out.println("ShowMan opened door number " + doorToOpenNumber);
     }
 
     public int getDoorToOpenNumber() {
@@ -91,7 +92,7 @@ public class ShowMan {
     }
 
     public void showDoors() {
-        /*StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < doors.length; i++) {
             sb.append("is ");
@@ -105,6 +106,6 @@ public class ShowMan {
             } else sb.append("nothing");
             System.out.printf("Door %d %s behind it\n", i, sb.toString());
             sb.delete(0, sb.length());
-        }*/
+        }
     }
 }
