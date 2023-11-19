@@ -4,16 +4,16 @@ import org.example.stage.ShowMan;
 
 public class Main {
     public static void main(String[] args) {
-        int attempts = 1000000;
-        int gamerVictoryCount = 0;
         ShowMan showMan = new ShowMan();
+        int gamerVictoryCounter = 0;
+        int attempts = 1000;
         for (int i = 0; i < attempts; i++) {
-
             if (showMan.startGame()) {
-                gamerVictoryCount++;
+                gamerVictoryCounter++;
             }
-            ;
         }
-        System.out.printf("Gamer won %d times from %d\n", gamerVictoryCount, gamerVictoryCount);
+        System.out.printf("Gamer won %d times from %d (%d%%)",
+                gamerVictoryCounter, attempts, (gamerVictoryCounter * 100 / attempts));
+        System.out.println();
     }
 }
