@@ -6,12 +6,16 @@ import java.util.Random;
 
 public class Gamer {
     private int decision;
-    Random rnd = new Random();
+    private final Random rnd = new Random();
 
-    public int makeDecision(Door[] doors) {
+    public Gamer() {
+        decision = -1;
+    }
+
+    public void makeDecision(Door[] doors) {
         boolean isAnyDoorOpened = false;
-        for (int i = 0; i < doors.length; i++) {
-            if (doors[i].isOpened()) {
+        for (Door door : doors) {
+            if (door.isOpened()) {
                 isAnyDoorOpened = true;
                 break;
             }
@@ -21,7 +25,6 @@ public class Gamer {
         } else {
             decision = rnd.nextInt(doors.length);
         }
-        return decision;
     }
 
     private void changeDecision(Door[] doors) {
@@ -34,7 +37,6 @@ public class Gamer {
         }
     }
 
-    ;
 
     public int getDecision() {
         return decision;

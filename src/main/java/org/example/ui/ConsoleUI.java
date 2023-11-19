@@ -1,4 +1,4 @@
-package org.example.stage.ui;
+package org.example.ui;
 
 import org.example.stage.ShowMan;
 
@@ -28,11 +28,13 @@ public class ConsoleUI implements UI {
     @Override
     public void gamerWonMessage() {
         System.out.println("Gamer won!");
+        System.out.println("________________________________________________");
     }
 
     @Override
     public void gamerLostMessage() {
         System.out.println("Gamer lost");
+        System.out.println("________________________________________________");
     }
 
     public void printDoors() {
@@ -47,7 +49,7 @@ public class ConsoleUI implements UI {
             if (showMan.isDoorWithPrise(this, showMan.getDoors()[i])) {
                 sb.append("a PRIZE");
             } else sb.append("nothing");
-            System.out.printf("Door %d %s behind it\n", i, sb.toString());
+            System.out.printf("Door %d %s behind it\n", i, sb);
             sb.delete(0, sb.length());
         }
     }

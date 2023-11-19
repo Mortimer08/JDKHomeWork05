@@ -1,9 +1,7 @@
-package org.example.stage.ui;
-
-import org.example.stage.ShowMan;
+package org.example.ui;
 
 public class HiddenUI implements UI {
-    public HiddenUI(ShowMan showMan) {
+    public HiddenUI() {
     }
 
     @Override
