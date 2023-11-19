@@ -1,5 +1,8 @@
 package org.example.ui;
 
+/**
+ * Uses by Show Man to print messages
+ */
 public interface UI {
     void showDoors();
 

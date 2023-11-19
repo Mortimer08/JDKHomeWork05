@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         ShowMan showMan = new ShowMan();
         int gamerVictoryCounter = 0;
-        int attempts = 10000;
+        int attempts = 10;
         for (int i = 0; i < attempts; i++) {
             if (showMan.startGame()) {
                 gamerVictoryCounter++;
