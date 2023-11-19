@@ -27,7 +27,7 @@ public class ShowMan {
      * or not (HiddenUI)
      */
     public ShowMan() {
-        this.ui = new ConsoleUI(this);
+        this.ui = new HiddenUI(this);
     }
 
     /**
@@ -160,7 +160,7 @@ public class ShowMan {
 
     /**
      * Get number of door, chosen by gamer
-     * @return
+     * @return number of door, chosen by gamer
      */
     public int getGamerDecision() {
         return gamer.getDecision();
